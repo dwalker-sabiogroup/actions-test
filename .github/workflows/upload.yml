@@ -1,4 +1,4 @@
-name: Upload data
+name: Upload data - ${{ github.event.number }}
 
 on:
   pull_request:
