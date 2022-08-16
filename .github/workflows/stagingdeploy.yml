@@ -1,0 +1,31 @@
+name: Deploy to Staging
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: build
+    steps:
+      - name: version
+        run: test
+  test:
+    runs-on: ubuntu-latest
+    name: test
+    needs:
+      - build
+    steps:
+      - name: test
+        run: echo "test"
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy v{{ needs.build.outputs.version }} to Staging
+    needs:
+     - test
+     - build
+    environment: staging
+    continue-on-error: true
+    steps:
+     - name: deploy
+       run: echo "deploy"
