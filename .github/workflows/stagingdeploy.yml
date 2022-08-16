@@ -20,7 +20,7 @@ jobs:
         run: echo "test"
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy v{{ needs.build.outputs.version }} to Staging
+    name: Deploy v${{ needs.build.outputs.version }} to Staging
     needs:
      - test
      - build
