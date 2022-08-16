@@ -32,7 +32,7 @@ jobs:
     needs:
      - test
      - build
-    environment: staging
+    environment: ${{ matrix.environment }}
     steps:
      - name: deploy
        run: echo "deploy"
