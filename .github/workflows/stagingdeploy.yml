@@ -22,7 +22,13 @@ jobs:
         run: echo "test"
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy ${{ needs.build.outputs.version }} to Staging
+    strategy:
+      matrix:
+        environment:
+         - staging
+         - beta
+         - production
+    name: Deploy ${{ needs.build.outputs.version }} to ${{ matrix.environment }}
     needs:
      - test
      - build
