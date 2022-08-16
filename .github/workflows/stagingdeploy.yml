@@ -25,13 +25,13 @@ jobs:
      - test
      - build
     environment: staging
-    continue-on-error: true
     steps:
      - name: deploy
        run: echo "deploy"
   rollback:
-   runs-on: ubuntu-latest
-   needs:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    needs:
      - deploy
-   steps:
+    steps:
     - uses: hmarr/debug-action@v2
