@@ -32,7 +32,9 @@ jobs:
     needs:
      - test
      - build
-    environment: ${{ matrix.environment }}
+    environment:
+      name: ${{ matrix.environment }}
+      url: https://flex.${{ matrix.environment }}-sabio.cloud
     steps:
      - name: deploy
        run: echo "deploy"
