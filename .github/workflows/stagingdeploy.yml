@@ -15,11 +15,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: test
+    environment:
+      name: default
+      url: https://flex.${{ matrix.environment }}-sabio.cloud/CSS/SignIn.aspx
     needs:
       - build
     steps:
       - name: test
-        run: echo "test"
+        run: |
+          echo "test"
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
   deploy:
     runs-on: ubuntu-latest
     strategy:
