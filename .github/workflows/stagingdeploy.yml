@@ -36,8 +36,7 @@ jobs:
       name: ${{ matrix.environment }}
       url: https://flex.${{ matrix.environment }}-sabio.cloud/CSS/SignIn.aspx
     steps:
-      - name: deploy
-        run: echo "deploy"
+      - uses: hmarr/debug-action@v2
   rollback:
     continue-on-error: true
     runs-on: ubuntu-latest
